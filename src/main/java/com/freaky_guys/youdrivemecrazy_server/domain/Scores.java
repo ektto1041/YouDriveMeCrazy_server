@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "SCORES")
 public class Scores {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "scores_id")
     private long scoresId;
 
