@@ -22,11 +22,11 @@ public class Scores {
     @Column(name = "player2", nullable = false)
     private String player2;
 
-    @Column(name = "points", nullable = false)
-    private int points;
+    @Column(name = "clear_time", nullable = false)
+    private float clearTime;
 
     // Method
     public ScoresDto toDto() {
-        return new ScoresDto(scoresId, player1, player2, points);
+        return new ScoresDto(scoresId, player1, player2, clearTime);
     }
 }
