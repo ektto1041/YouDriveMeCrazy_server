@@ -13,7 +13,7 @@ public class ScoresDto {
     private String player1;
     private String player2;
 
-    private int points;
+    private float clearTime;
 
     // Method
 }

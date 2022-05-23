@@ -27,12 +27,12 @@ public class ScoresController {
     }
 
     // 점수 등록하는 api
-    @PostMapping("scores/{player1}/{player2}/{points}")
+    @PostMapping("scores/{player1}/{player2}/{clearTime}")
     public ResponseEntity<Object> insert(
             @PathVariable("player1") String player1,
             @PathVariable("player2") String player2,
-            @PathVariable("points") int points) {
-        ScoresDto scoresDto = scoresService.insert(player1, player2, points);
+            @PathVariable("clearTime") String clearTime) {
+        ScoresDto scoresDto = scoresService.insert(player1, player2, clearTime);
 
         return ResponseEntity.status(HttpStatus.OK).body(scoresDto);
     }

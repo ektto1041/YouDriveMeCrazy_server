@@ -26,8 +26,8 @@ public class ScoresService {
 
     // 점수 등록하는 메소드
     @Transactional
-    public ScoresDto insert(String p1, String p2, int points) {
-        Scores scores = Scores.builder().scoresId(0L).player1(p1).player2(p2).points(points).build();
+    public ScoresDto insert(String p1, String p2, String clearTime) {
+        Scores scores = Scores.builder().scoresId(0L).player1(p1).player2(p2).clearTime(Float.valueOf(clearTime)).build();
         System.out.println(scores.getScoresId());
 
         Scores savedScores = scoresRepository.save(scores);
