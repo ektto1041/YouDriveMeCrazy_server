@@ -4,6 +4,7 @@ import com.freaky_guys.youdrivemecrazy_server.dto.ScoresDto;
 import com.freaky_guys.youdrivemecrazy_server.dto.ScoresResDto;
 import com.freaky_guys.youdrivemecrazy_server.service.ScoresService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ScoresController {
     private final ScoresService scoresService;
 
