@@ -5,11 +5,9 @@ import com.freaky_guys.youdrivemecrazy_server.dto.ScoresResDto;
 import com.freaky_guys.youdrivemecrazy_server.service.ScoresService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,13 +25,10 @@ public class ScoresController {
     }
 
     // 점수 등록하는 api
-    @PostMapping("scores/{player1}/{player2}/{clearTime}")
-    public ResponseEntity<Object> insert(
-            @PathVariable("player1") String player1,
-            @PathVariable("player2") String player2,
-            @PathVariable("clearTime") String clearTime) {
-        ScoresDto scoresDto = scoresService.insert(player1, player2, clearTime);
+    @PostMapping(value="scores", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Object> insert(@RequestBody ScoresDto scoresDto) {
+        ScoresDto result = scoresService.insert(scoresDto);
 
-        return ResponseEntity.status(HttpStatus.OK).body(scoresDto);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 }
