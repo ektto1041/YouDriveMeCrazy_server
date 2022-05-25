@@ -5,6 +5,7 @@ import com.freaky_guys.youdrivemecrazy_server.dto.ScoresDto;
 import com.freaky_guys.youdrivemecrazy_server.dto.ScoresResDto;
 import com.freaky_guys.youdrivemecrazy_server.repository.ScoresRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +20,7 @@ public class ScoresService {
 
     // 모든 점수 가져오는 메소드
     public ScoresResDto findAll() {
-        List<Scores> allScores = scoresRepository.findAll();
+        List<Scores> allScores = scoresRepository.findAll(Sort.by(Sort.Direction.ASC, "clearTime"));
 
         return new ScoresResDto(allScores.stream().map(Scores::toDto).collect(Collectors.toList()));
     }
