@@ -39,4 +39,24 @@ public class RecordResultDto {
     public RecordResultDto(String playerName) {
         this.playerName = playerName;
     }
+
+    @Override
+    public String toString() {
+        return "RecordResultDto{" +
+                "playerName='" + playerName + '\'' +
+                ", animalKill=" + animalKill +
+                ", pedestrianKill=" + pedestrianKill +
+                ", carAccident=" + carAccident +
+                ", illegalLaneChange=" + illegalLaneChange +
+                ", signalViolation=" + signalViolation +
+                ", centerLineViolation=" + centerLineViolation +
+                ", offPath=" + offPath +
+                ", maxSpeed=" + maxSpeed +
+                ", wiperCount=" + wiperCount +
+                ", klaxonCount=" + klaxonCount +
+                ", clearCount=" + clearCount +
+                ", minClearTime=" + minClearTime +
+                ", achievementCount=" + achievementCount +
+                '}';
+    }
 }

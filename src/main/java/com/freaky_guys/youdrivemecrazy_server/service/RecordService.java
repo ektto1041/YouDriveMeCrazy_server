@@ -142,4 +142,10 @@ public class RecordService {
 
         return recordResultDto;
     }
+
+    public RecordResultDto getRecord(String playerName) {
+        Record record = recordRepository.findByPlayerName(playerName);
+
+        return record.toResultDto();
+    }
 }

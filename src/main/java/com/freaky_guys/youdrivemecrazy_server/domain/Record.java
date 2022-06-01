@@ -1,5 +1,6 @@
 package com.freaky_guys.youdrivemecrazy_server.domain;
 
+import com.freaky_guys.youdrivemecrazy_server.dto.RecordResultDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -109,5 +110,25 @@ public class Record {
                 .clearCount(0)
                 .minClearTime(6000f)
                 .achievementCount(0).build();
+    }
+
+    public RecordResultDto toResultDto() {
+        RecordResultDto result = new RecordResultDto(this.playerName);
+
+        if(animalKillCount >= 100) result.setAnimalKill(true);
+        if(pedestrianKillCount >= 100) result.setPedestrianKill(true);
+        if(carAccidentCount >= 100) result.setCarAccident(true);
+        if(illegalLaneChangeCount >= 100) result.setIllegalLaneChange(true);
+        if(signalViolationCount >= 100) result.setSignalViolation(true);
+        if(centerLineViolationCount >= 100) result.setCenterLineViolation(true);
+        if(offPathCount >= 100) result.setOffPath(true);
+        if(maxSpeed >= 240) result.setMaxSpeed(true);
+        if(wiperCount >= 100) result.setWiperCount(true);
+        if(klaxonCount >= 100) result.setKlaxonCount(true);
+        if(clearCount >= 100) result.setClearCount(true);
+        if(minClearTime <= 60) result.setMinClearTime(true);
+        if(achievementCount >= 12) result.setAchievementCount(true);
+
+        return result;
     }
 }
