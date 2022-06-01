@@ -94,4 +94,20 @@ public class Record {
         achievementCount++;
     }
 
+    public static Record create(String name) {
+        return Record.builder().recordId(0).playerName(name)
+                .animalKillCount(0)
+                .pedestrianKillCount(0)
+                .carAccidentCount(0)
+                .illegalLaneChangeCount(0)
+                .signalViolationCount(0)
+                .centerLineViolationCount(0)
+                .offPathCount(0)
+                .maxSpeed(0)
+                .wiperCount(0)
+                .klaxonCount(0)
+                .clearCount(0)
+                .minClearTime(6000f)
+                .achievementCount(0).build();
+    }
 }

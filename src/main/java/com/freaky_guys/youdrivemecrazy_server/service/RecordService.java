@@ -15,6 +15,11 @@ public class RecordService {
     private final RecordRepository recordRepository;
 
     @Transactional
+    public void newRecord(String name) {
+        recordRepository.save(Record.create(name));
+    }
+
+    @Transactional
     public RecordResultDto insertRecord(RecordDto recordDto) {
         String playerName = recordDto.getPlayerName();
 

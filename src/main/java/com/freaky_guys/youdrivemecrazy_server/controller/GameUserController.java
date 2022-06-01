@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.freaky_guys.youdrivemecrazy_server.service.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,9 @@ public class GameUserController {
 	
 	@Autowired
 	private GameUserRepository GUrepos;
+
+	@Autowired
+	private RecordService recordService;
 
 //	/** Login **/
 //    @RequestMapping(value="ymmc/auth/login", method= {RequestMethod.GET, RequestMethod.POST})
@@ -134,10 +138,11 @@ public class GameUserController {
 	public void addUser(@RequestBody gameuser user) {
 		gameuser member2 = GUrepos.findByEmail(user.getEmail());
 		if(member2 == null) {
-			 GUrepos.save(user);
+			gameuser savedUser = GUrepos.save(user);
+
+			recordService.newRecord(savedUser.getEmail());
 		}
-		 
-		}
+	}
 //	@GetMapping(value = "ymmc/auth/duplicatecheck/{email}",produces = "application/json" ) 
 //	public boolean findbyid(@PathVariable String email) { 
 //		return GUrepos.findByEmail(email);
