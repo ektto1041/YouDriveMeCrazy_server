@@ -17,6 +17,8 @@ public class RecordController {
 
     @PostMapping(value="record", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> insertRecord(@RequestBody RecordDto recordDto) {
+        System.out.println(recordDto.getPlayerName());
+
         RecordResultDto recordResultDto = recordService.insertRecord(recordDto);
 
         return ResponseEntity.ok(recordResultDto);

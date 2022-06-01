@@ -1,6 +1,5 @@
 package com.freaky_guys.youdrivemecrazy_server.controller;
 
-
 import java.util.List;
 import java.util.Map;
 
@@ -21,10 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.freaky_guys.youdrivemecrazy_server.domain.gameuser;
 import com.freaky_guys.youdrivemecrazy_server.repository.GameUserRepository;
-
-
-
-
 
 @RestController
 public class GameUserController {

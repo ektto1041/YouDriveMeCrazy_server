@@ -17,7 +17,7 @@ public class Record {
     private long recordId;
 
     @Column(name = "player_name", nullable = false)
-    private Integer playerName;
+    private String playerName;
 
     @Column(name = "animal_kill_count", nullable = false)
     private Integer animalKillCount;

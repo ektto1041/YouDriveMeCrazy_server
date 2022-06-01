@@ -34,7 +34,6 @@ public class RecordService {
          * 6 - 중앙선 침범
          * 7 - 길 벗어남
          */
-
         switch (type) {
             case 0:
                 foundRecord.addClearCount();
