@@ -10,17 +10,17 @@ public class gameuser {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String email;
+	private String nickname;
 	private String password;
 	public gameuser() {
 	}
-	public gameuser(Long id, String email, String password) {
+	public gameuser(Long id, String nickname, String password) {
 		this.id = id;
-		this.email = email;
+		this.nickname = nickname;
 		this.password = password;
 	}
-	public gameuser(String email, String password) {
-		this.email = email;
+	public gameuser(String nickname, String password) {
+		this.nickname = nickname;
 		this.password = password;
 	}
 	public Long getId() {
@@ -29,11 +29,11 @@ public class gameuser {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getEmail() {
-		return email;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String nickname) {
+		this.nickname = nickname;
 	}
 	public String getPassword() {
 		return password;
