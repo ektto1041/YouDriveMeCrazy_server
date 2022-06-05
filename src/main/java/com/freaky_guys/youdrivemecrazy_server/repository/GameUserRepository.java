@@ -11,7 +11,7 @@ import com.freaky_guys.youdrivemecrazy_server.domain.gameuser;
 
 public interface GameUserRepository extends JpaRepository<gameuser,Long>{
 
-	gameuser findByEmail(String email);
+	gameuser findByNickname(String nickname);
 	List<gameuser> findAll();
 	//gameuser selectGameuser(String email, String password);
 

@@ -55,10 +55,10 @@ public class GameUserController {
 //	public boolean findbyid(@PathVariable String email) { 
 //		return GUrepos.findByEmail(email);
 //	}
-	 @GetMapping(value = "ymmc/auth/login/{email}/{password}",produces = "application/json" ) 
-		public boolean login(@PathVariable  String email, @PathVariable  String password ) { 
+	 @GetMapping(value = "ymmc/auth/login/{nickname}/{password}",produces = "application/json" ) 
+		public boolean login(@PathVariable  String nickname, @PathVariable  String password ) { 
 			//gameuser member = GUrepos.selectGameuser(email, password);
-			gameuser member23 = GUrepos.findByEmail(email);
+			gameuser member23 = GUrepos.findByNickname(nickname);
 			if(member23 == null) {
 				return false;
 			}
@@ -136,11 +136,11 @@ public class GameUserController {
 //    }
 	@PostMapping(value = "ymmc/auth/add", consumes = "application/json") 
 	public void addUser(@RequestBody gameuser user) {
-		gameuser member2 = GUrepos.findByEmail(user.getEmail());
+		gameuser member2 = GUrepos.findByNickname(user.getNickname());
 		if(member2 == null) {
 			gameuser savedUser = GUrepos.save(user);
 
-			recordService.newRecord(savedUser.getEmail());
+			recordService.newRecord(savedUser.getNickname());
 		}
 	}
 //	@GetMapping(value = "ymmc/auth/duplicatecheck/{email}",produces = "application/json" ) 
